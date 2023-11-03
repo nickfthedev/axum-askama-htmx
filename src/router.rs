@@ -30,6 +30,6 @@ pub fn app_router(pool: Arc<PgPool>) -> Router {
         .route("/clickme", post(|| async { "Hi HTMX" }))
         // todoapp routes
         .route("/todo", get(todo_main)) 
-        .route("/todo", post(move || todo_add(pool.clone(), form)))
+        .route("/todo", post(move || todo_add(pool.clone())))
         .fallback_service(serve_dir)
 }

@@ -23,10 +23,9 @@ pub struct TodoForm {
 ///
 /// Function for adding a task
 /// 
-pub async fn todo_add(pool: Arc<PgPool>, form: Form<TodoForm>) -> String {
+pub async fn todo_add(pool: Arc<PgPool>) -> String {
     info!("Adding Todo");
-    let description = &form.description;
-    sqlx::query!("INSERT INTO todos (description, done) VALUES ($1, $2)", description, false)
+    sqlx::query!("INSERT INTO todos (description, done) VALUES ($1, $2)", "Test", false)
         .execute(&*pool)
         .await;
    return "Hallo".to_string();
