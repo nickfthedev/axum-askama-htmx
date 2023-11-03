@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{% block title %} - Yell at me Todo {% endblock %}</title>
+  {% block head %}
+  <style>
+    body {
+      background-color: #333;
+    }
+  </style>
+  {% endblock %}
+</head>
+
+<body>
+  <div id="content">
+    {% block content %}<p>Placeholder content (Rendered by the use of super in Child template)</p>{% endblock %}
+  </div>
+</body>
+
+</html>
