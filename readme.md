@@ -20,3 +20,12 @@ Run:
 ```
 cargo watch -x run'  OR  'npm run dev
 ```
+
+### Database SQLx
+
+Install SQLx CLI
+```
+cargo install sqlx-cli --no-default-features --features rustls,postgres
+
+```
+Copy .env.sample to .env and change database url
