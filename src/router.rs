@@ -1,4 +1,5 @@
-use crate::handlers::root::{root_handler, todomain};
+use crate::handlers::root::root_handler;
+use crate::handlers::todo::{todo_add, todo_main};
 
 use axum::{
     handler::HandlerWithoutStateExt,
@@ -6,10 +7,13 @@ use axum::{
     routing::{get, post},
     Router,
 };
+use sqlx::{PgPool, pool};
 use tower_http::services::ServeDir;
+use std::sync::Arc;
+use axum::response::Response;
 
-// The app router is the router for the app
-pub fn app_router() -> Router {
+// The app router  for the app
+pub fn app_router(pool: Arc<PgPool>) -> Router {
     async fn handle_404() -> (StatusCode, &'static str) {
         (StatusCode::NOT_FOUND, "Not found")
     }
@@ -20,9 +24,12 @@ pub fn app_router() -> Router {
     let serve_dir = ServeDir::new("public").not_found_service(service);
 
     Router::new()
-        .route("/foo", get(|| async { "Hi from /foo" }))
-        .route("/clickme", post(|| async { "Hi HTMX" }))
+        // TEST ROUTES
         .route("/", get(root_handler))
-        .route("/todo", get(todomain))
+        .route("/health", get(|| async { "Health OK" }))
+        .route("/clickme", post(|| async { "Hi HTMX" }))
+        // todoapp routes
+        .route("/todo", get(todo_main)) 
+        .route("/todo", post(move || todo_add(pool.clone(), form)))
         .fallback_service(serve_dir)
 }
