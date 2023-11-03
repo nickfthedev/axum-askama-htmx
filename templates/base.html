@@ -4,14 +4,12 @@
 <head>
   <title>{% block title %} -  Todo {% endblock %}</title>
   {% block head %}
-  <style>
-    body {
-      background-color: #333;
-    }
-  </style>
+  <!-- Can be used for custom styles -->
+  <style></style>
+  <!-- Tailwind CSS File, build with cmd: npm run css:build -->
   <link href="style.css" rel="stylesheet">
+  <!-- Include HTMX -->
   <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-
   {% endblock %}
 </head>
 

@@ -3,11 +3,11 @@
 ### Tailwind make CSS
 Watching changes
 ```
-npm run css-dev
+npm run css:dev
 ```
 Just build:
 ```
-npm run css
+npm run css:build
 ```
 
 ### Run Cargo Watch (must be installed)
