@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Index
+{% call super() %}
+{% endblock %}
+
+{% block head %}
+<style>
+</style>
+{% call super() %}
+{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl flex flex-col   ">
+  <h1 class=" text-2xl tracking-tight">Todo List</h1>
+  <div class="join w-full">
+    <input class="input input-bordered join-item w-full" placeholder="Task"/>
+    <button class="btn join-item input-bordered ">Add</button>
+  </div>
+  <ul>
+  <li class="bg-base-200 mt-1 shadow rounded-md p-3 border border-base-300 border-solid">
+    <input type="checkbox" checked="checked" className="checkbox checkbox-primary" />
+    <span class="line-through">List Item</span>
+  </li>  
+  <li class="bg-base-200 mt-1 shadow rounded-md p-3 border border-base-300 border-solid">
+    <input type="checkbox" className="checkbox checkbox-primary" />
+    <span>List Item</span>
+  </li>  
+  </ul>
+</div>
+
+{% endblock %}
+

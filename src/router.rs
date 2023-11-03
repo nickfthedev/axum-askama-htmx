@@ -1,4 +1,4 @@
-use crate::handlers::root::root_handler;
+use crate::handlers::root::{root_handler, todomain};
 
 use axum::{
     handler::HandlerWithoutStateExt,
@@ -23,6 +23,6 @@ pub fn app_router() -> Router {
         .route("/foo", get(|| async { "Hi from /foo" }))
         .route("/clickme", post(|| async { "Hi HTMX" }))
         .route("/", get(root_handler))
+        .route("/todo", get(todomain))
         .fallback_service(serve_dir)
 }
-
