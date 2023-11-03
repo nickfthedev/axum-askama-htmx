@@ -2,12 +2,17 @@
 
 ### Tailwind make CSS
 
-'npm run css-dev'
+'''
+npm run css-dev
+'''
 
 ### Run Cargo Watch (must be installed)
 
 Install
-'cargo install cargo-watch'
-
+'''
+cargo install cargo-watch
+'''
 Run:
-'cargo watch -x run'  OR  'npm run dev'
+'''
+cargo watch -x run'  OR  'npm run dev
+'''
