@@ -12,6 +12,9 @@ Index
 {% endblock %}
 
 {% block content %}
-<h1>Index</h1>
+<h1 class="underline text-3xl text-red-500">Index</h1>
 <p>Hello, {{ name }}!</p>
+  <button hx-post="/clickme" hx-swap="outerHTML">
+    Click me daddy
+  </button>
 {% endblock %}
